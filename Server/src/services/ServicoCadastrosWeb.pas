@@ -36,6 +36,8 @@ begin
   
   Response.ContentText := JSONArrayCadastros.ToString;
   Response.ContentType := 'application/json';
+  Response.CustomHeaders.AddValue('Access-Control-Allow-Credentials','true');
+  Response.CustomHeaders.AddValue('Access-Control-Allow-Origin','http://localhost:8080');
   // É necessário liberar somente o JSONArrayCadastros, uma vez que o JSONCadastro já pertence ao mesmo e liberando um irá também liberar o outro.
   JSONArrayCadastros.Free;
 end;
